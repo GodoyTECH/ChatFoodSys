@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatNutri - IA Nutricional via WhatsApp</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; min-height: 100vh; color: white; }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 { font-size: 3rem; margin-bottom: 10px; color: #22c55e; }
+        .subtitle { font-size: 1.2rem; color: #94a3b8; margin-bottom: 50px; }
+        
+        .fluxo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .fluxo-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            width: 220px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .fluxo-icon { font-size: 3rem; margin-bottom: 15px; }
+        .fluxo-text { font-size: 1rem; }
+        .fluxo-arrow { font-size: 2rem; color: #22c55e; }
+        
+        .phones {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .phone {
+            width: 160px;
+            height: 320px;
+            background: #000;
+            border-radius: 25px;
+            border: 3px solid #333;
+            padding: 8px;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        
+        .phone-send { background: linear-gradient(180deg, #25D366 0%, #128C7E 100%); }
+        .phone-result { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); }
+        
+        .food-icon { font-size: 3rem; }
+        .result-box {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+        .result-label { font-size: 0.7rem; color: #22c55e; }
+        .result-value { font-size: 1rem; font-weight: bold; }
+        
+        .features { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+        .features h2 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .feature-icon { font-size: 2rem; margin-bottom: 10px; }
+        .feature-card h3 { color: #22c55e; margin-bottom: 8px; }
+        .feature-card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; }
+        
+        .cta { background: #22c55e; padding: 50px 20px; text-align: center; }
+        .cta h2 { margin-bottom: 15px; }
+        .cta p { margin-bottom: 20px; font-size: 1.1rem; }
+        
+        .btn {
+            background: white;
+            color: #22c55e;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        footer { padding: 25px; text-align: center; color: #64748b; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>🍎 ChatNutri</h1>
+        <p class="subtitle">IA Nutricional via WhatsApp</p>
+        
+        <div class="fluxo">
+            <div class="fluxo-item">
+                <div class="fluxo-icon">📸</div>
+                <div class="fluxo-text"><strong>Tire a foto</strong><br>do seu prato</div>
+            </div>
+            <div class="fluxo-arrow">➡️</div>
+            <div class="fluxo-item">
+                <div class="fluxo-icon">💬</div>
+                <div class="fluxo-text"><strong>Envie pelo</strong><br>WhatsApp</div>
+            </div>
+            <div class="fluxo-arrow">➡️</div>
+            <div class="fluxo-item">
+                <div class="fluxo-icon">📊</div>
+                <div class="fluxo-text"><strong>Receba</strong><br>análise nutricional</div>
+            </div>
+        </div>
+        
+        <div class="phones">
+            <div class="phone">
+                <div class="phone-screen phone-send">
+                    <div class="food-icon">🍲</div>
+                    <p style="color:white;font-size:0.8rem;margin-top:10px;">Enviando foto...</p>
+                </div>
+            </div>
+            <div class="phone">
+                <div class="phone-screen phone-result">
+                    <div class="result-box">
+                        <div class="result-label">Calorias</div>
+                        <div class="result-value">325 kcal</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Proteínas</div>
+                        <div class="result-value">12g</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Carbos</div>
+                        <div class="result-value">45g</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <h2>✨ Como Funciona</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Tire a Foto</h3>
+                <p>Fotografe seu prato de qualquer refeição.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Envie pelo WhatsApp</h3>
+                <p>Sem baixar apps. Envie direto pelo WhatsApp.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Receba Dados</h3>
+                <p>Calorias, proteínas, gorduras e muito mais.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Controle sua Dieta</h3>
+                <p>Monitore sua alimentação todos os dias.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <h2>Comece Agora!</h2>
+        <p>É gratis para testes.</p>
+        <a href="#" class="btn">Experimentar Grátis</a>
+    </section>
+    
+    <footer>
+        <p>© 2026 ChatNutri | Godoy Solutions in TECH</p>
+    </footer>
+</body>
+</html>
